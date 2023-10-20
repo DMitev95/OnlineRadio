@@ -51,12 +51,14 @@ const Player = () => {
     <div className="radio">
       <div className="filters">
         {filters.map((filter) => {
-          <span
-            className={stationFilter === filter ? "selected" : ""}
-            onClick={() => setStationFilter(filter)}
-          >
-            {filter}
-          </span>;
+          return (
+            <span
+              className={stationFilter === filter ? "selected" : ""}
+              onClick={() => setStationFilter(filter)}
+            >
+              {filter}
+            </span>
+          );
         })}
       </div>
       <div className="stations">
@@ -80,6 +82,7 @@ const Player = () => {
                   layout="stacked"
                   customProgressBarSection={[]}
                   customControlsSection={["MAIN_CONTROLS", "VOLUME_CONTROLS"]}
+                  autoPlayAfterSrcChange={false}
                 />
               </div>
             );
