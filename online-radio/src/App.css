@@ -57,21 +57,21 @@ h2 {
   margin-bottom: 2em;
   font-size: 1.2rem;
   width: 100%;
+}
 
-  span {
-    margin: 0.25em;
-    border: 1px solid #e36bae;
-    border-radius: 10px;
-    padding: 0.25em 0.75em;
+span {
+  margin: 0.25em;
+  border: 1px solid #e36bae;
+  border-radius: 10px;
+  padding: 0.25em 0.75em;
 
-    &:hover {
-      cursor: pointer;
-      background: linear-gradient(to right, #e36bae, #fb743e);
-    }
+  &:hover {
+    cursor: pointer;
+    background: linear-gradient(to right, #e36bae, #fb743e);
   }
-  .selected {
-    background: linear-gradient(to bottom right, #e36bae, #fb743e);
-  }
+}
+.selected {
+  background: linear-gradient(to bottom right, #e36bae, #fb743e);
 }
 
 .stations {
