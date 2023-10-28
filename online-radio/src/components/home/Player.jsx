@@ -3,23 +3,23 @@ import "react-h5-audio-player/lib/styles.css";
 import React, { useEffect, useState } from "react";
 import { RadioBrowserApi } from "radio-browser-api";
 import DefaultImg from "../radio.jpg";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 // import 'react-h5-audio-player/lib/styles.less' Use LESS
 // import 'react-h5-audio-player/src/styles.scss' Use SASS
 
 const Player = () => {
-  const filters = [
-    "all",
-    "classical",
-    "country",
-    "dance",
-    "disco",
-    "house",
-    "jazz",
-    "pop",
-    "rap",
-    "retro",
-    "rock",
-  ];
+  const settings = {
+    // className: "center",
+    centerMode: true,
+    infinite: true,
+    centerPadding: "60px",
+    slidesToShow: 1,
+    speed: 500,
+    rows: 3,
+    slidesPerRow: 1,
+  };
 
   const [stations, setStations] = useState();
   const [stationFilter, setStationFilter] = useState("all");
@@ -35,6 +35,7 @@ const Player = () => {
       countryCode: "BG",
       limit: 30,
       offset: 0,
+      // tag: stationFilter,
       order: "votes",
       reverse: true,
       language: ["bulgarian"],
@@ -45,6 +46,21 @@ const Player = () => {
   const setDefoultSrc = (event) => {
     event.target.src = DefaultImg;
   };
+
+  const filters = [
+    "all",
+    "classical",
+    "country",
+    "dance",
+    "disco",
+    "house",
+    "jazz",
+    "pop",
+    "rap",
+    "retro",
+    "rock",
+  ];
+
   console.log(stations);
 
   return (
@@ -62,6 +78,7 @@ const Player = () => {
         })}
       </div>
       <div className="stations">
+        {/* <Slider {...settings}> */}
         {stations &&
           stations.map((station, index) => {
             return (
@@ -87,6 +104,7 @@ const Player = () => {
               </div>
             );
           })}
+        {/* </Slider> */}
       </div>
     </div>
   );
